@@ -10,20 +10,20 @@ const cartTotal = document.querySelector(".cart-total");
 const cartContent = document.querySelector(".cart-content");
 const productsDOM = document.querySelector(".products-center");
 //TODO: add to products
-pics = document.getElementById('picture').value
-productsToAdd = {
-    sys: {id: Products.length + 1 },
-            fields: {
-                title: document.getElementById('title').value,
-                price: parseInt(document.getElementById('title').value),
-                image: {fields: {file: {url: `./images/${pics}`}}}
-            }
-}
+// pics = document.getElementById('picture').value
+// productsToAdd = {
+//     sys: {id: Products.length + 1 },
+//             fields: {
+//                 title: document.getElementById('title').value,
+//                 price: parseInt(document.getElementById('title').value),
+//                 image: {fields: {file: {url: `./images/${pics}`}}}
+//             }
+// }
 
-fetch('products.json',{
-    method: 'POST',
-    body: JSON.stringify(productsToAdd)
-  });
+// fetch('products.json',{
+//     method: 'POST',
+//     body: JSON.stringify(productsToAdd)
+//   });
 
 // cart
 let cart = [];
@@ -116,19 +116,19 @@ class UI {
         cartItems.innerText = itemsTotal;
     }
     addCartItem(item){
-const div = document.createElement("div");
-div.classList.add("cart-item");
-div.innerHTML = `<img src=${item.image} alt="product">
-                    <div>
-                        <h4>${item.title}</h4>
-                        <h5>$${item.price}</h5>
-                        <span class="remove-item" data-id=${item.id}>remove</span>
-                    </div>
-                    <div>
-                        <i class="fas fa-chevron-up" data-id=${item.id}></i>
-                        <p class="item-amount">${item.amount}</p>
-                        <i class="fas fa-chevron-down" data-id=${item.id}></i>
-                    </div>`;
+        const div = document.createElement("div");
+        div.classList.add("cart-item");
+        div.innerHTML = `<img src=${item.image} alt="product">
+                        <div>
+                            <h4>${item.title}</h4>
+                            <h5>$${item.price}</h5>
+                            <span class="remove-item" data-id=${item.id}>remove</span>
+                        </div>
+                        <div>
+                            <i class="fas fa-chevron-up" data-id=${item.id}></i>
+                            <p class="item-amount">${item.amount}</p>
+                            <i class="fas fa-chevron-down" data-id=${item.id}></i>
+                        </div>`;
                     cartContent.appendChild(div);                         
     }
     showCart() {
